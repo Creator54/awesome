@@ -155,7 +155,7 @@ function desktop:init(args)
 	-- Desktop setup
 	--------------------------------------------------------------------------------
 	--local desktop_objects = { netspeed, hddspeed, ssdspeed, transm, cpumem, disks, thermal }
-	local desktop_objects = { netspeed, hddspeed, transm, cpumem, disks, thermal }
+	local desktop_objects = { transm, cpumem, disks}
 
 	if not autohide then
 		redflat.util.desktop.build.static(desktop_objects)
