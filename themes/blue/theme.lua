@@ -92,7 +92,7 @@ theme.individual.desktop.multimeter.transmission = {
 -- Multilines disks (individual widget)
 theme.individual.desktop.multiline.disks = {
 	unit  = { { "KB", 1 }, { "MB", 1024^1 }, { "GB", 1024^2 } },
-	lines = { show = { text = false } },
+	lines = { show = { text = true } },
 }
 
 -- Singleline temperature (individual widget)
