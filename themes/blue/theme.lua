@@ -21,7 +21,7 @@ theme.path = awful.util.get_configuration_dir() .. "themes/blue"
 -- Main config
 --------------------------------------------------------------------------------
 theme.panel_height = 36 -- panel height
-theme.wallpaper    = theme.path .. "/desktop/default_wallpaper.png"
+theme.wallpaper    = theme.path .. "/desktop/default_wallpaper.jpg"
 
 -- Setup parent theme settings
 --------------------------------------------------------------------------------
@@ -39,12 +39,22 @@ theme.desktop.grid = {
 	edge   = { width = { 60, 60 }, height = { 40, 40 } }
 }
 
+--theme.desktop.places = {
+--	cpumem	 = { 1, 1 },
+--	ssdspeed = { 2, 1 },
+--	hddspeed = { 3, 1 },
+--	netspeed = { 1, 2 },
+--	transm   = { 1, 3 },
+--	disks    = { 1, 4 },
+--	thermal  = { 1, 5 }
+--}
+
 theme.desktop.places = {
-	netspeed = { 1, 1 },
+	transm	 = { 1, 1 },
 	ssdspeed = { 2, 1 },
 	hddspeed = { 3, 1 },
-	cpumem   = { 1, 2 },
-	transm   = { 1, 3 },
+	netspeed = { 1, 2 },
+	cpumem   = { 1, 3 },
 	disks    = { 1, 4 },
 	thermal  = { 1, 5 }
 }
@@ -56,7 +66,7 @@ theme.desktop.places = {
 theme.individual.desktop = { speedmeter = {}, multimeter = {}, multiline = {}, singleline = {} }
 
 -- Speedmeter (base widget)
-theme.desktop.speedmeter.normal.images = { theme.path .. "/desktop/up.svg", theme.path .. "/desktop/down.svg" }
+theme.desktop.speedmeter.normal.images = { theme.path .. "/desktop/up.png", theme.path .. "/desktop/down.png" }
 
 -- Speedmeter drive (individual widget)
 theme.individual.desktop.speedmeter.drive = {
@@ -64,12 +74,12 @@ theme.individual.desktop.speedmeter.drive = {
 }
 
 -- Multimeter (base widget)
-theme.desktop.multimeter.lines.show = { label = false, tooltip = false, text = true }
+theme.desktop.multimeter.lines.show = { label = true, tooltip = false, text = true }
 
 -- Multimeter cpu and ram (individual widget)
 theme.individual.desktop.multimeter.cpumem = {
 	labels = { "RAM", "SWAP" },
-	icon   = { image = theme.path .. "/desktop/bstar.svg" }
+	icon   = { image = theme.path .. "/desktop/Ram.png" }
 }
 
 -- Multimeter transmission info (individual widget)

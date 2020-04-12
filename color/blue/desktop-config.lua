@@ -34,11 +34,11 @@ function desktop:init(args)
 	local netspeed = { geometry = wgeometry(grid, places.netspeed, workarea) }
 
 	netspeed.args = {
-		interface    = "wlp60s0",
+		interface    = "wlp3s0",
 		maxspeed     = { up = 6*1024^2, down = 6*1024^2 },
 		crit         = { up = 6*1024^2, down = 6*1024^2 },
 		timeout      = 2,
-		autoscale    = false
+		autoscale    = true
 	}
 
 	netspeed.style  = {}
@@ -155,7 +155,7 @@ function desktop:init(args)
 	-- Desktop setup
 	--------------------------------------------------------------------------------
 	--local desktop_objects = { netspeed, hddspeed, ssdspeed, transm, cpumem, disks, thermal }
-	local desktop_objects = { transm, cpumem, disks}
+	local desktop_objects = { cpumem, disks}
 
 	if not autohide then
 		redflat.util.desktop.build.static(desktop_objects)
