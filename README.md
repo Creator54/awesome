@@ -1,3 +1,5 @@
+# Fork of https://github.com/worron/awesome-config
+
 # Red Flat Awesome WM config
 Custom config for [Awesome WM](http://awesome.naquadah.org).
 
