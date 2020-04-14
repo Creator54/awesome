@@ -1,6 +1,8 @@
+# Fork of Distrotube's awesome dotfiles
+# Source : https://gitlab.com/dwt1/dotfiles.git
 # My Awesome Configuration
 
-![Screenshot of my desktop](https://www.gitlab.com/dwt1/dotfiles/raw/master/.screenshots/dotfiles09.png)
+![Screenshot of my desktop](https://github.com/Creator54/awesome-configs/blob/dt/screenshot.png)
 
 Awesome is a highly configurable, tiling window manager for X. It is very fast, extensible and licensed under the GNU GPLv2 license.  Awesome is a perfect "first" tiling window manager for those who want to try out tiling, but the extreme customization that you can achieve with awesome makes it a power user's dream.  Awesome is configured with Lua.
 
