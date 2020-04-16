@@ -103,10 +103,10 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "firefox"
-local editor            = os.getenv("EDITOR") or "vim"
+local browser           = "firefox-developer-edition"
+local editor            = "subl3"
 local editorgui         = "geany"
-local filemanager       = "thunar"
+local filemanager       = "dolphin"
 local mailclient        = "geary"
 local mediaplayer       = "vlc"
 local scrlocker         = "slimlock"
@@ -287,16 +287,20 @@ globalkeys = my_table.join(
         {description = "trading programs" , group = "dmenu scripts" }),
         
     -- My applications (Super+Alt+Key)
-    awful.key({ modkey, altkey }, "a", function () awful.util.spawn( terminal.." -e ncpamixer" ) end,
-        {description = "ncpamixer" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "b", function () awful.util.spawn( "surf www.youtube.com/c/DistroTube" ) end,
-        {description = "surf web browser" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "a", function () awful.util.spawn( "atom" ) end,
+        {description = "atom code editor" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "f", function () awful.util.spawn( "firefox-developer-edition https://google.com" ) end,
+        {description = "firefox-developer-edition" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "d", function () awful.util.spawn( "dolphin" ) end,
+        {description = "filemanager" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "t", function () awful.util.spawn( "thunar" ) end,
+        {description = "filemanager" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "b", function () awful.util.spawn( "blueman-manager" ) end,
+        {description = "bluetooth manager" , group = "gui apps" }),
     awful.key({ modkey, altkey  }, "c", function () awful.util.spawn( terminal.." -e cmus" ) end,
         {description = "cmus" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "e", function () awful.util.spawn( terminal.." -e neomutt" ) end,
         {description = "neomutt email" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "f", function () awful.util.spawn( terminal.." -e sh ./.config/vifm/scripts/vifmrun" ) end,
-        {description = "vifm" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "i", function () awful.util.spawn( terminal.." -e irssi" ) end,
         {description = "irssi" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "j", function () awful.util.spawn( terminal.." -e joplin" ) end,
