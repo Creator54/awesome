@@ -220,8 +220,6 @@ awful.util.mymainmenu = freedesktop.menu.build({
         -- other triads can be put here
     },
     after = {
-        { "Terminal", terminal },
-        { "Log out", function() awesome.quit() end },
         { "Sleep", "systemctl suspend" },
         { "Restart", "systemctl reboot" },
         { "Exit", "systemctl poweroff" },
@@ -293,6 +291,8 @@ globalkeys = my_table.join(
         {description = "firefox-developer-edition" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "d", function () awful.util.spawn( "dolphin" ) end,
         {description = "filemanager" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "s", function () awful.util.spawn( "subl3" ) end,
+        {description = "sublime code editor" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "t", function () awful.util.spawn( "thunar" ) end,
         {description = "filemanager" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "b", function () awful.util.spawn( "blueman-manager" ) end,
@@ -489,8 +489,10 @@ globalkeys = my_table.join(
               {description = terminal, group = "super"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift" }, "q", awesome.quit,
-              {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift" }, "q", function () awful.spawn("betterlockscreen -l dim") end,
+              {description = "lockscreen", group = "awesome"}),
+    --awful.key({ modkey, "Shift" }, "q", awesome.quit,
+    --          {description = "quit awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
