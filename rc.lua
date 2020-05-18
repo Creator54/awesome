@@ -103,7 +103,7 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "firefox-developer-edition"
+local browser           = "firefox"
 local editor            = "subl3"
 local editorgui         = "geany"
 local filemanager       = "dolphin"
@@ -115,7 +115,8 @@ local virtualmachine    = "virtualbox"
 
 -- awesome variables
 awful.util.terminal = terminal
---awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
+--awful.util.tagnames = {  "  ", "  ", " " ", "  ", " " ", "   ", "  ", "  ", "  ", "  " }
+--awful.util.tagnames = {  "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
 awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
@@ -289,14 +290,16 @@ globalkeys = my_table.join(
     -- My applications (Super+Alt+Key)
     awful.key({ modkey, altkey }, "a", function () awful.util.spawn( "atom" ) end,
         {description = "atom code editor" , group = "gui apps" }),
-    awful.key({ modkey, altkey }, "f", function () awful.util.spawn( "firefox-developer-edition https://google.com" ) end,
-        {description = "firefox-developer-edition" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "f", function () awful.util.spawn( "firefox" ) end,
+        {description = "firefox" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "d", function () awful.util.spawn( "dolphin" ) end,
         {description = "filemanager" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "t", function () awful.util.spawn( "thunar" ) end,
         {description = "filemanager" , group = "gui apps" }),
-    awful.key({ modkey, altkey }, "b", function () awful.util.spawn( "blueman-manager" ) end,
-        {description = "bluetooth manager" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "t", function () awful.util.spawn( "thunar" ) end,
+        {description = "filemanager" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "s", function () awful.util.spawn( "subl3" ) end,
+        {description = "editor" , group = "gui apps" }),
     awful.key({ modkey, altkey  }, "c", function () awful.util.spawn( terminal.." -e cmus" ) end,
         {description = "cmus" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "e", function () awful.util.spawn( terminal.." -e neomutt" ) end,
@@ -319,6 +322,9 @@ globalkeys = my_table.join(
         {description = "wopr report.xml" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "y", function () awful.util.spawn( terminal.." -e youtube-viewer" ) end,
         {description = "youtube-viewer" , group = "terminal apps" }),
+    awful.key({ modkey, altkey  }, "r", function () awful.util.spawn( terminal.." -e ranger" ) end,
+        {description = "file manager" , group = "terminal apps" }),
+    
 
     -- screenshots
     awful.key({ }, "Print", function () awful.util.spawn("scrot 'ArcoLinuxD-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'") end,
@@ -337,7 +343,7 @@ globalkeys = my_table.join(
         {description = "show help", group="awesome"}),
 
     -- Tag browsing with modkey
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey,			  }, "Left",   awful.tag.viewprev,
         {description = "view previous", group = "tag"}),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
         {description = "view next", group = "tag"}),
