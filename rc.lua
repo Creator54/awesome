@@ -357,8 +357,8 @@ globalkeys = my_table.join(
         {description = "view previous", group = "tag"}),
 
      -- Tag browsing modkey + tab
-    awful.key({ modkey,           }, "Tab",   awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
+    --awful.key({ modkey,           }, "Tab",   awful.tag.viewnext,
+    --    {description = "view next", group = "tag"}),
     awful.key({ modkey, "Shift"   }, "Tab",  awful.tag.viewprev,
         {description = "view previous", group = "tag"}),
 
@@ -452,7 +452,7 @@ globalkeys = my_table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey1,           }, "Tab",
+    awful.key({ modkey,}, "Tab",--switch windows
         function ()
             awful.client.focus.history.previous()
             if client.focus then
