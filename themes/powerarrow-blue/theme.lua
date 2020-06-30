@@ -236,7 +236,7 @@ https://openweathermap.org/
 Type in the name of your city
 Copy/paste the city code in the URL to this file in city_id
 --]]
-local weathericon = wibox.widget.imagebox(theme.widget_weather)
+--[[local weathericon = wibox.widget.imagebox(theme.widget_weather)
 theme.weather = lain.widget.weather({
     city_id = 2803138, -- placeholder (Belgium)
     notification_preset = { font = "Mononoki Nerd Font 11", fg = theme.fg_normal },
@@ -247,6 +247,7 @@ theme.weather = lain.widget.weather({
         widget:set_markup(markup.fontfg(theme.font, "#ffffff", descr .. " @ " .. units .. "°C "))
     end
 })
+--]]
 
 --[[ / fs
 local fsicon = wibox.widget.imagebox(theme.widget_hdd)
@@ -402,7 +403,7 @@ function theme.at_screen_connect(s)
            -- wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, 4, 7), "#343434"),
             --arrow("alpha", "#7197E7"),
             --wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, 3, 6), "#7197E7"),
-            arrow("alpha", "#7197E7"),
+            arrow("alpha ", "#7197E7"),
             wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#7197E7"),
             arrow("#7197E7", "#A77AC4"),
             wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#A77AC4"),
