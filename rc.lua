@@ -288,8 +288,8 @@ globalkeys = my_table.join(
         {description = "trading programs" , group = "dmenu scripts" }),
         
     -- My applications (Super+Alt+Key)
-    awful.key({ modkey, altkey }, "a", function () awful.util.spawn( "atom" ) end,
-        {description = "atom code editor" , group = "gui apps" }),
+    awful.key({ modkey, altkey }, "a", function () awful.util.spawn( "emacs" ) end,
+        {description = "emacs code editor" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "f", function () awful.util.spawn( "firefox" ) end,
         {description = "firefox" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "d", function () awful.util.spawn( "dolphin" ) end,
@@ -316,8 +316,8 @@ globalkeys = my_table.join(
         {description = "newsboat" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "p", function () awful.util.spawn( terminal.." -e pianobar" ) end,
         {description = "pianobar" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "r", function () awful.util.spawn( terminal.." -e rtv" ) end,
-        {description = "rtv" , group = "terminal apps" }),
+    --awful.key({ modkey, altkey }, "r", function () awful.util.spawn( terminal.." -e rtv" ) end,
+    --    {description = "rtv" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "w", function () awful.util.spawn( terminal.." -e wopr report.xml" ) end,
         {description = "wopr report.xml" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "y", function () awful.util.spawn( terminal.." -e youtube-viewer" ) end,
