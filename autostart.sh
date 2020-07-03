@@ -10,10 +10,9 @@ function run {
 while true
 do
 	if ! grep -q open /proc/acpi/button/lid/LID0/state; then
-        betterlockscreen --lock blur
+        betterlockscreen -l dim --off 3
 	fi
 done
-
 # && echo $? returns 0 if open if found
 #searches for open in the above file if found return 1 thus executing betterlockscreen
 
