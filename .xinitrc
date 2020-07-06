@@ -22,6 +22,7 @@ betterlockscreen -l dim &
 #transmission-daemon &
 nm-applet &
 numlockx on &
+xset -b & 
 #~/.config/polybar/launch.sh &
 #volumeicon &
 #dropbox &
