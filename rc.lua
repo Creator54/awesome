@@ -495,6 +495,8 @@ globalkeys = my_table.join(
               {description = terminal, group = "super"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift" }, "q", function () awful.spawn.with_shell(" killall autostart.sh") end,
+              {description = "killall autostart.sh processes", group = "hotkeys"}),
     awful.key({ modkey, "Shift" }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
