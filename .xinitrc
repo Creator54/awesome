@@ -17,6 +17,7 @@ betterlockscreen -l dim &
 #urxvtd -q -o -f &
 #udiskie &
 #compton -b &
+picom -b &
 #xcompmgr -c -f -n &
 #mpd &
 #transmission-daemon &
@@ -29,12 +30,12 @@ xset -b &
 #stalonetray &
 #trayer --edge bottom --align right --SetDoc#kType true --SetPartialStrut true --expand true --widthtype percent --width 9 --transparent true --tint 0x000000 --height 12 &
 
-autocutsel -fork &
-autocutsel -selection PRIMARY -fork &
+#autocutsel -fork &
+#autocutsel -selection PRIMARY -fork &
 /usr/bin/start-pulseaudio-x11 &
 #sxhkd &
 # exec gnome-session
-# exec startkde
+#exec startkde
 #exec startxfce4
 #exec i3
 # exec openbox
