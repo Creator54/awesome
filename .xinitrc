@@ -12,7 +12,6 @@ fi
 #export SSH_AUTH_SOCK
 #export GPG_AGENT_INFO
 sleep 2 && nitrogen --restore &
-redshift -O 4000K &
 betterlockscreen -l dim &
 #urxvtd -q -o -f &
 #udiskie &
