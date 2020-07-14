@@ -414,10 +414,10 @@ function theme.at_screen_connect(s)
             --arrow("#7197E7", "#A77AC4"),
             --wibox.container.background(wibox.container.margin(wibox.widget { weathericon, theme.weather.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#A77AC4"),
             --arrow("#A77AC4", "#7197E7"),
-            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3)),
-            --arrow("#7197E7", "#A77AC4"),
             wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3)),
             --arrow("#A77AC4", "#7197E7"),
+            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3)),
+            --arrow("#7197E7", "#A77AC4"),
             wibox.container.background(wibox.container.margin(clock, 4, 8)),
             --arrow("#7197E7", "alpha"),
             --]]
