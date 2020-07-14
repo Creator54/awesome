@@ -268,25 +268,30 @@ globalkeys = my_table.join(
 
     -- {{{ Personal keybindings
     -- dmenu
-    awful.key({ modkey, "Shift" }, "Return",
-    function ()
-        awful.spawn(string.format("dmenu_run -i  -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -fn 'Mononoki Nerd Font:bold:pixelsize=14'",
-        beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
-	end,
-    {description = "show dmenu", group = "hotkeys"}),
+    --awful.key({ modkey, "Shift" }, "Return",
+    --function ()
+    --    awful.spawn(string.format("dmenu_run -i  -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -fn 'Mononoki Nerd Font:bold:pixelsize=14'",
+    --    beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
+	--end,
+    --{description = "show dmenu", group = "hotkeys"}),
 
     -- My dmenu scripts (Alt+Ctrl+Key)
-    awful.key({ altkey, "Control" }, "e", function () awful.util.spawn( "./.dmenu/dmenu-edit-configs.sh" ) end,
-        {description = "edit config files" , group = "dmenu scripts" }),
-    awful.key({ altkey, "Control" }, "m", function () awful.util.spawn( "./.dmenu/dmenu-sysmon.sh" ) end,
-        {description = "system monitoring apps" , group = "dmenu scripts" }),
-    awful.key({ altkey, "Control" }, "p", function () awful.util.spawn( "passmenu" ) end,
-        {description = "passmenu" , group = "dmenu scripts" }),
-    awful.key({ altkey, "Control"  }, "s", function () awful.util.spawn( "./.dmenu/dmenu-surfraw.sh" ) end,
-        {description = "surfraw web search" , group = "dmenu scripts" }),
-    awful.key({ altkey, "Control"  }, "t", function () awful.util.spawn( "./.dmenu/dmenu-trading.sh" ) end,
-        {description = "trading programs" , group = "dmenu scripts" }),
-        
+    --awful.key({ altkey, "Control" }, "e", function () awful.util.spawn( "./.dmenu/dmenu-edit-configs.sh" ) end,
+    --    {description = "edit config files" , group = "dmenu scripts" }),
+    --awful.key({ altkey, "Control" }, "m", function () awful.util.spawn( "./.dmenu/dmenu-sysmon.sh" ) end,
+    --    {description = "system monitoring apps" , group = "dmenu scripts" }),
+    --awful.key({ altkey, "Control" }, "p", function () awful.util.spawn( "passmenu" ) end,
+    --    {description = "passmenu" , group = "dmenu scripts" }),
+    --awful.key({ altkey, "Control"  }, "s", function () awful.util.spawn( "./.dmenu/dmenu-surfraw.sh" ) end,
+    --    {description = "surfraw web search" , group = "dmenu scripts" }),
+    --awful.key({ altkey, "Control"  }, "t", function () awful.util.spawn( "./.dmenu/dmenu-trading.sh" ) end,
+    --    {description = "trading programs" , group = "dmenu scripts" }),
+    
+    --rofi
+
+    awful.key({ modkey, "Shift" }, "Return", function () awful.util.spawn( "rofi -threads 0 -sort -show drun -show-icons " ) end,
+        {description = "show rofi " , group = "hotkeys" }),
+
     -- My applications (Super+Alt+Key)
     awful.key({ modkey, altkey }, "a", function () awful.util.spawn( "emacs" ) end,
         {description = "emacs code editor" , group = "gui apps" }),
