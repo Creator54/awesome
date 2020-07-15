@@ -270,9 +270,9 @@ local bat = lain.widget.bat({
                 --widget:set_markup(markup.font(theme.font, " on AC "))
                 baticon:set_image(theme.widget_ac)
                 return
-            elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
+            elseif not bat_now.perc and tonumber(bat_now.perc) <= 10 then
                 baticon:set_image(theme.widget_battery_empty)
-            elseif not bat_now.perc and tonumber(bat_now.perc) <= 15 then
+            elseif not bat_now.perc and tonumber(bat_now.perc) <= 50 then
                 baticon:set_image(theme.widget_battery_low)
             else
                 baticon:set_image(theme.widget_battery)
