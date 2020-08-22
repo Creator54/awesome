@@ -317,7 +317,7 @@ globalkeys = my_table.join(
         {description = "lynx cli browser" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "m", function () awful.util.spawn( terminal.." -e toot curses" ) end,
         {description = "toot curses" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "n", function () awful.util.spawn( terminal.." -e newsboat" ) end,
+    awful.key({ modkey, altkey }, "n", function () awful.util.spawn( terminal.." -e nnn" ) end,
         {description = "newsboat" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "p", function () awful.util.spawn( terminal.." -e pianobar" ) end,
         {description = "pianobar" , group = "terminal apps" }),
