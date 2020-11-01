@@ -9,7 +9,7 @@ fi
 #eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 #export SSH_AUTH_SOCK
 #export GPG_AGENT_INFO
-nitrogen --restore &
+#nitrogen --restore &
 #betterlockscreen -l dim &
 redshift -t 6500:4500 &
 #urxvtd -q -o -f &
