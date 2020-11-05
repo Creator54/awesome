@@ -318,7 +318,10 @@ globalkeys = my_table.join(
     awful.key({ modkey, altkey }, "m", function () awful.util.spawn( terminal.." -e toot curses" ) end,
         {description = "toot curses" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "n", function () awful.util.spawn( terminal.." -e nnn" ) end,
-        {description = "newsboat" , group = "terminal apps" }),
+        {description = "file manager" , group = "terminal apps" }), 
+    awful.key({ modkey, altkey }, "t", function () awful.util.spawn( terminal.." -e tmux" ) end,
+        {description = "tmux" , group = "terminal apps" }),
+
     awful.key({ modkey, altkey  }, "p", function () awful.util.spawn( terminal.." -e pianobar" ) end,
         {description = "pianobar" , group = "terminal apps" }),
     --awful.key({ modkey, altkey }, "r", function () awful.util.spawn( terminal.." -e rtv" ) end,
@@ -327,9 +330,7 @@ globalkeys = my_table.join(
         {description = "wopr report.xml" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "y", function () awful.util.spawn( terminal.." -e youtube-viewer" ) end,
         {description = "youtube-viewer" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "r", function () awful.util.spawn( terminal.." -e ranger" ) end,
-        {description = "file manager" , group = "terminal apps" }),
-    
+
 
     -- screenshots
     awful.key({ }, "Print", function () awful.util.spawn("scrot 'Arch-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'") end,
@@ -494,6 +495,14 @@ globalkeys = my_table.join(
               {description = "move tag to the right", group = "tag"}),
     awful.key({ modkey, "Shift" }, "d", function () lain.util.delete_tag() end,
               {description = "delete tag", group = "tag"}),
+
+
+    -- System controls
+    awful.key({ modkey, "Control"  }, "r", function () awful.util.with_shell("reboot") end,
+              {description = "System Reboot", group = "system"}),
+    awful.key({ modkey, "Control" }, "p", function () awful.spawn.with_shell("poweroff") end,
+              {description = "System Shutdown", group = "system"}),
+
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
