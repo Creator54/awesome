@@ -7,6 +7,8 @@ function run {
   fi
 }
 
+run "betterlockscreen -u ~/.config/awesome/themes/powerarrow-blue/wallpaper.jpg"
+run "betterlockscreen -l dim --off 3"
 while true
 do
 	if ! grep -q open /proc/acpi/button/lid/LID0/state; then
