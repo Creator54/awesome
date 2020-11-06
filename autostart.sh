@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/run/current-system/sw/bin/bash
 
 function run {
   if ! pgrep $1 ;
@@ -11,7 +11,6 @@ while true
 do
 	if ! grep -q open /proc/acpi/button/lid/LID0/state; then
         betterlockscreen -l dim --off 3
-        terminal.." -e cmatrix -s"
 	fi
 done
 # && echo $? returns 0 if open if found
