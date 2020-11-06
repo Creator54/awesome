@@ -498,7 +498,7 @@ globalkeys = my_table.join(
 
 
     -- System controls
-    awful.key({ modkey, "Control"  }, "r", function () awful.util.with_shell("reboot") end,
+    awful.key({ modkey, "Control" }, "r", function () awful.spawn.with_shell("reboot") end,
               {description = "System Reboot", group = "system"}),
     awful.key({ modkey, "Control" }, "p", function () awful.spawn.with_shell("poweroff") end,
               {description = "System Shutdown", group = "system"}),
