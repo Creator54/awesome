@@ -93,6 +93,7 @@ local themes = {
 -- choose your theme here
 local chosen_theme = themes[1]
 
+
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
 
@@ -115,13 +116,14 @@ local virtualmachine    = "virtualbox"
 
 -- awesome variables
 awful.util.terminal = terminal
+awful.util.tagnames = { " 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "}
 --awful.util.tagnames = {  "  ", "  ", " " ", "  ", " " ", "   ", "  ", "  ", "  ", "  " }
 --awful.util.tagnames = {  "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  " }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
+--awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
 -- Use this : https://fontawesome.com/cheatsheet
---awful.util.tagnames = { "", "", "", "", "" }
+--awful.util.tagnames = { "  ", "  ", "   ", "   ", "  " }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.tile,
@@ -129,23 +131,23 @@ awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
-    --awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    --awful.layout.suit.max.fullscreen,
+    awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
-    --awful.layout.suit.corner.ne,
-    --awful.layout.suit.corner.sw,
-    --awful.layout.suit.corner.se,
-    --lain.layout.cascade,
-    --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center,
+    awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.ne,
+    awful.layout.suit.corner.sw,
+    awful.layout.suit.corner.se,
+    lain.layout.cascade,
+    lain.layout.cascade.tile,
+    lain.layout.centerwork,
+    lain.layout.centerwork.horizontal,
+    lain.layout.termfair,
+    lain.layout.termfair.center,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -299,9 +301,7 @@ globalkeys = my_table.join(
         {description = "firefox" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "d", function () awful.util.spawn( "dolphin" ) end,
         {description = "filemanager" , group = "gui apps" }),
-    awful.key({ modkey, altkey }, "t", function () awful.util.spawn( "thunar" ) end,
-        {description = "filemanager" , group = "gui apps" }),
-    awful.key({ modkey, altkey }, "t", function () awful.util.spawn( "thunar" ) end,
+    awful.key({ modkey, altkey }, "t", function () awful.util.spawn( "telegram-desktop" ) end,
         {description = "filemanager" , group = "gui apps" }),
     awful.key({ modkey, altkey }, "s", function () awful.util.spawn( "subl3" ) end,
         {description = "editor" , group = "gui apps" }),
@@ -309,8 +309,8 @@ globalkeys = my_table.join(
         {description = "cmus" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "e", function () awful.util.spawn( terminal.." -e neomutt" ) end,
         {description = "neomutt email" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "i", function () awful.util.spawn( terminal.." -e irssi" ) end,
-        {description = "irssi" , group = "terminal apps" }),
+    awful.key({ modkey, altkey  }, "i", function () awful.util.spawn( terminal.." -e vim .config/awesome/rc.lua" ) end,
+        {description = "edit config" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "j", function () awful.util.spawn( terminal.." -e joplin" ) end,
         {description = "joplin" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "l", function () awful.util.spawn( terminal.." -e lynx --cfg=~/.lynx/lynx.cfg --lss=~/.lynx/lynx.lss -vikeys gopher://distro.tube" ) end,
@@ -319,9 +319,8 @@ globalkeys = my_table.join(
         {description = "toot curses" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "n", function () awful.util.spawn( terminal.." -e nnn" ) end,
         {description = "file manager" , group = "terminal apps" }), 
-    awful.key({ modkey, altkey }, "t", function () awful.util.spawn( terminal.." -e tmux" ) end,
-        {description = "tmux" , group = "terminal apps" }),
-
+    awful.key({ modkey, altkey }, "v", function () awful.util.spawn( terminal.." -e vim" ) end,
+        {description = "editor" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "p", function () awful.util.spawn( terminal.." -e pianobar" ) end,
         {description = "pianobar" , group = "terminal apps" }),
     --awful.key({ modkey, altkey }, "r", function () awful.util.spawn( terminal.." -e rtv" ) end,

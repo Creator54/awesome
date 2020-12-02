@@ -17,19 +17,20 @@ local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-blue"
 theme.wallpaper                                 = theme.dir .. "/wallpaper.jpg"
 theme.font                                      = "Mononoki Nerd Font Bold 9"
-theme.taglist_font                              = "Droid Sans Bold 8"
-theme.fg_normal                                 = "#ffffff"
+theme.taglist_font                              = "Droid Sans Bold 10"
+font_color                                      = "#61AFEF"   --statusbar normal font color
+theme.fg_normal                                 = "#E06C75"   --same color used for shortcut menu font too
 theme.fg_focus                                  = "#A77AC4"
 theme.fg_urgent                                 = "#b74822"
-theme.bg_normal                                 = "#282a36"
-theme.bg_focus                                  = "#61AFEF"
+theme.bg_normal                                 = "#282C34"   --statusbar and shortcut menu background color
+theme.bg_focus                                  = "#1DA1F2"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#282a36"
 theme.tasklist_bg_focus                         = "#000000"
 theme.tasklist_fg_focus                         = "#A77AC4"
-theme.border_width                              = 2
-theme.border_normal                             = "#61AFEF"
-theme.border_focus                              = "#61AFEF"
+theme.border_width                              = 4 
+theme.border_normal                             = "#4E4E4E"
+theme.border_focus                              = "#4E4E4E"
 theme.border_marked                             = "#CC9393"
 theme.titlebar_bg_focus                         = "#3F3F3F"
 theme.titlebar_bg_normal                        = "#3F3F3F"
@@ -78,7 +79,7 @@ theme.widget_scissors                           = theme.dir .. "/icons/scissors.
 theme.widget_weather                            = theme.dir .. "/icons/dish.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = 0
+theme.useless_gap                               = 2
 theme.titlebar_close_button_focus               = theme.dir .. "/icons/titlebar/close_focus.png"
 theme.titlebar_close_button_normal              = theme.dir .. "/icons/titlebar/close_normal.png"
 theme.titlebar_ontop_button_focus_active        = theme.dir .. "/icons/titlebar/ontop_focus_active.png"
@@ -307,7 +308,7 @@ theme.volume = lain.widget.alsa({
 local neticon = wibox.widget.imagebox(theme.widget_net)
 local net = lain.widget.net({
     settings = function()
-        widget:set_markup(markup.fontfg(theme.font, "#FEFEFE", " " .. net_now.received .. " ↓↑ " .. net_now.sent .. " "))
+        widget:set_markup(markup.fontfg(theme.font, font_color, " " .. net_now.received .. " ↓↑ " .. net_now.sent .. " "))
     end
 })
 
@@ -340,7 +341,7 @@ end
 function theme.at_screen_connect(s)
     -- Quake application
    -- s.quake = lain.util.quake({ app = awful.util.terminal })
-   s.quake = lain.util.quake({ app = "alacritty", height = 0.50, argname = "--name %s" })
+   s.quake = lain.util.quake({ app = "kitty", height = 0.50, argname = "--name %s" })
 
 
 
@@ -371,7 +372,7 @@ function theme.at_screen_connect(s)
     --s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 20, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 20, bg = theme.bg_normal, fg = font_color })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
