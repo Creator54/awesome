@@ -348,10 +348,10 @@ globalkeys = my_table.join(
         {description = "show help", group="awesome"}),
 
     -- Tag browsing with modkey
-    awful.key({ modkey,			  }, "Left",   awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
+    --awful.key({ modkey,			  }, "Left",   awful.tag.viewprev,
+    --    {description = "view previous", group = "tag"}),
+    --awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    --    {description = "view next", group = "tag"}),
     awful.key({ altkey,           }, "Escape", awful.tag.history.restore,
         {description = "go back", group = "tag"}),
 
@@ -389,25 +389,25 @@ globalkeys = my_table.join(
     ),
 
     -- By direction client focus
-    awful.key({ modkey }, "j",
+    awful.key({ modkey }, "Down",
         function()
             awful.client.focus.global_bydirection("down")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus down", group = "client"}),
-    awful.key({ modkey }, "k",
+    awful.key({ modkey }, "Up",
         function()
             awful.client.focus.global_bydirection("up")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus up", group = "client"}),
-    awful.key({ modkey }, "h",
+    awful.key({ modkey }, "Left",
         function()
             awful.client.focus.global_bydirection("left")
             if client.focus then client.focus:raise() end
         end,
         {description = "focus left", group = "client"}),
-    awful.key({ modkey }, "l",
+    awful.key({ modkey }, "Right",
         function()
             awful.client.focus.global_bydirection("right")
             if client.focus then client.focus:raise() end
