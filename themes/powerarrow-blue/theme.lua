@@ -19,9 +19,12 @@ color_table1 = {"#323234","#E06C75","#61AFEF","#4E4E4E"}
 -- for random colors
 math.randomseed(os.time()) -- random initialize
 value = math.random(1,5)
+--wall_count = os.capture("ls ~/wallpapers/ | grep wc -l")
+--NEED HELP HERE
 
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-blue"
-theme.wallpaper                                 = theme.dir .. "/wallpaper.jpg"
+theme.wallpaper                                 = os.getenv("HOME") .. "/wallpapers/" .. value .. ".jpg"
+--theme.wallpaper                                 = os.getenv("HOME") .. "/wallpapers/" .. math.random(1,wall_count) .. ".jpg"
 theme.font                                      = "Mononoki Nerd Font Bold 9"
 theme.taglist_font                              = "Droid Sans Bold 10"
 font_color                                      = color_table1[3]   --statusbar normal font color, use cutom colors or color_table1
@@ -34,7 +37,7 @@ theme.bg_urgent                                 = color_table1[1]
 theme.taglist_fg_focus                          = color_table1[1]
 theme.tasklist_bg_focus                         = "#000000"
 theme.tasklist_fg_focus                         = color_table[5]
-theme.border_width                              = 4 
+theme.border_width                              = 6
 theme.border_normal                             = color_table1[1]
 theme.border_focus                              = color_table[value]
 theme.border_marked                             = color_table1[2]
