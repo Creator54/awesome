@@ -14,26 +14,32 @@ local math, string, os = math, string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
+color_table = {"#5A9DE3","#A94358","#54976E","#FFA500","#A77AC4"}
+color_table1 = {"#323234","#E06C75","#61AFEF","#4E4E4E"}
+-- for random colors
+math.randomseed(os.time()) -- random initialize
+value = math.random(1,5)
+
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-blue"
 theme.wallpaper                                 = theme.dir .. "/wallpaper.jpg"
 theme.font                                      = "Mononoki Nerd Font Bold 9"
 theme.taglist_font                              = "Droid Sans Bold 10"
-font_color                                      = "#61AFEF"   --statusbar normal font color
-theme.fg_normal                                 = "#E06C75"   --same color used for shortcut menu font too
-theme.fg_focus                                  = "#A77AC4"
-theme.fg_urgent                                 = "#b74822"
-theme.bg_normal                                 = "#282C34"   --statusbar and shortcut menu background color
-theme.bg_focus                                  = "#1DA1F2"
-theme.bg_urgent                                 = "#3F3F3F"
-theme.taglist_fg_focus                          = "#282a36"
+font_color                                      = color_table1[3]   --statusbar normal font color, use cutom colors or color_table1
+theme.fg_normal                                 = color_table[value]   --same color used for shortcut menu font too
+theme.fg_focus                                  = color_table[5]
+theme.fg_urgent                                 = color_table[3]
+theme.bg_normal                                 = color_table1[1]   --statusbar and shortcut menu background color
+theme.bg_focus                                  = color_table[value]
+theme.bg_urgent                                 = color_table1[1]
+theme.taglist_fg_focus                          = color_table1[1]
 theme.tasklist_bg_focus                         = "#000000"
-theme.tasklist_fg_focus                         = "#A77AC4"
+theme.tasklist_fg_focus                         = color_table[5]
 theme.border_width                              = 4 
-theme.border_normal                             = "#4E4E4E"
-theme.border_focus                              = "#4E4E4E"
-theme.border_marked                             = "#CC9393"
-theme.titlebar_bg_focus                         = "#3F3F3F"
-theme.titlebar_bg_normal                        = "#3F3F3F"
+theme.border_normal                             = color_table1[1]
+theme.border_focus                              = color_table[value]
+theme.border_marked                             = color_table1[2]
+theme.titlebar_bg_focus                         = color_table1[1]
+theme.titlebar_bg_normal                        = color_table1[1]
 theme.titlebar_bg_focus                         = theme.bg_focus
 theme.titlebar_bg_normal                        = theme.bg_normal
 theme.titlebar_fg_focus                         = theme.fg_focus
@@ -79,7 +85,7 @@ theme.widget_scissors                           = theme.dir .. "/icons/scissors.
 theme.widget_weather                            = theme.dir .. "/icons/dish.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
-theme.useless_gap                               = 2
+theme.useless_gap                               = 4
 theme.titlebar_close_button_focus               = theme.dir .. "/icons/titlebar/close_focus.png"
 theme.titlebar_close_button_normal              = theme.dir .. "/icons/titlebar/close_normal.png"
 theme.titlebar_ontop_button_focus_active        = theme.dir .. "/icons/titlebar/ontop_focus_active.png"
@@ -117,6 +123,7 @@ theme.cal = lain.widget.cal({
     attach_to = { clock },
     notification_preset = {
         font = "Mononoki Nerd Font 11",
+        border_width = 4,
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -186,7 +193,7 @@ theme.mpd = lain.widget.mpd({
             artist = " " .. mpd_now.artist .. " "
             title  = mpd_now.title  .. " "
             mpdicon:set_image(theme.widget_music_on)
-            widget:set_markup(markup.font(theme.font, markup("#FFFFFF", artist) .. " " .. title))
+            widget:set_markup(markup.font(theme.font, markup(color_table[value], artist) .. " " .. title))
         elseif mpd_now.state == "pause" then
             widget:set_markup(markup.font(theme.font, " mpd paused "))
             mpdicon:set_image(theme.widget_music_pause)
@@ -380,7 +387,10 @@ function theme.at_screen_connect(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             --spr,
-            s.mytaglist,
+            --arrow(color_table1[1],color_table[2]),
+            --s.mytaglist,
+            wibox.container.background(wibox.container.margin(wibox.widget { s.mytaglist, layout = wibox.layout.align.horizontal },5,2),color_table[2]), --0,0 gap before/after the taglist
+            arrow(color_table[2], color_table1[1]),
             s.mypromptbox,
             spr,
         },

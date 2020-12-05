@@ -28,7 +28,7 @@ local function factory(args)
 
     local bat       = { widget = wibox.widget.textbox() }
     local args      = args or {}
-    local timeout   = args.timeout or 30
+    local timeout   = args.timeout or 1  -- refreshes battery status every given seconds, 0 causes cpu spikes
     local notify    = args.notify or "on"
     local n_perc    = args.n_perc or { 5, 15 }
     local batteries = args.batteries or (args.battery and {args.battery}) or {}
