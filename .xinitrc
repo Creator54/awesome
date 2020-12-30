@@ -6,43 +6,8 @@ done
 unset f
 fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources && ~/.xprofile
-#eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-#export SSH_AUTH_SOCK
-#export GPG_AGENT_INFO
-#nitrogen --restore &
-#betterlockscreen -l dim &
-redshift -t 6500:4500 &
-#urxvtd -q -o -f &
-#udiskie &
-#compton -b &
-#picom -b &
-#xcompmgr -c -f -n &
-#mpd &
-#transmission-daemon &
 nm-applet &
 numlockx on &
 xset -b & 
-#~/.config/polybar/launch.sh &
-#volumeicon &
-#dropbox &
-#stalonetray &
-#trayer --edge bottom --align right --SetDoc#kType true --SetPartialStrut true --expand true --widthtype percent #--width 9 --transparent true --tint 0x000000 --height 12 &
-
-#autocutsel -fork &
-#autocutsel -selection PRIMARY -fork &
 /usr/bin/start-pulseaudio-x11 &
-#sxhkd &
-# exec gnome-session
-#exec startkde
-#exec startxfce4
-#exec i3
-# exec openbox
 exec awesome
-#exec mate-session
-#exec xmonad
-#exec dwm
-#exec herbstluftwm
-#exec startdde
-#exec bspwm
-#exec edex-ui
-# ...or the Window Manger of your choice
