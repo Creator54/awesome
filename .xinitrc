@@ -37,7 +37,7 @@ xset -b &
 #exec startxfce4
 #exec i3
 # exec openbox
-#exec awesome
+exec awesome
 #exec mate-session
 #exec xmonad
 #exec dwm
