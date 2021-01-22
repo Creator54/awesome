@@ -272,7 +272,7 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
+    awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
@@ -566,7 +566,7 @@ beautiful.border_focus  = "#dc3232"
 beautiful.border_marked = "#CC9393"
 
 -- Autostart
-autostart = {'picom', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/' }
+autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/' }
 for i, pkg in ipairs(autostart) do
   awful.spawn.with_shell(pkg)
 end
