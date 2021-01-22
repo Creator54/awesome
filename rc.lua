@@ -562,6 +562,12 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+-- Adding gaps
+beautiful.useless_gap = 3
+beautiful.border_normal = "#3F3F3F"
+beautiful.border_focus  = "#dc3232"
+beautiful.border_marked = "#CC9393"
+
 -- Autostart
 autostart = {'picom', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/' }
 for i, pkg in ipairs(autostart) do
