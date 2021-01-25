@@ -922,6 +922,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
--- Autostart applications
---awful.spawn.with_shell("~/.config/awesome/autostart.sh")
---awful.spawn.with_shell("compton --config  $HOME/.config/compton/compton.conf")
+-- Autostart
+autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/' }
+for i, pkg in ipairs(autostart) do
+  awful.spawn.with_shell(pkg)
+end
