@@ -126,7 +126,7 @@ awful.util.tagnames = { " 1 "," 2 "," 3 "," 4 "}
 --awful.util.tagnames = { "  ", "  ", "   ", "   ", "  " }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
-    awful.layout.suit.tile,
+    awful.layout.suit.max,
     awful.layout.suit.floating,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
@@ -135,7 +135,7 @@ awful.layout.layouts = {
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
+    awful.layout.suit.tile,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
