@@ -355,12 +355,6 @@ globalkeys = my_table.join(
     awful.key({ altkey,           }, "Escape", awful.tag.history.restore,
         {description = "go back", group = "tag"}),
 
-     -- Tag browsing alt + tab
-    awful.key({ altkey,           }, "Tab",   awful.tag.viewnext,
-        {description = "view next", group = "tag"}),
-    awful.key({ altkey, "Shift"   }, "Tab",  awful.tag.viewprev,
-        {description = "view previous", group = "tag"}),
-
      -- Tag browsing modkey + tab
     --awful.key({ modkey,           }, "Tab",   awful.tag.viewnext,
     --    {description = "view next", group = "tag"}),
@@ -368,24 +362,18 @@ globalkeys = my_table.join(
         {description = "view previous", group = "tag"}),
 
 
-    -- Non-empty tag browsing
-    --awful.key({ modkey }, "Left", function () lain.util.tag_view_nonempty(-1) end,
-              --{description = "view  previous nonempty", group = "tag"}),
-   -- awful.key({ modkey }, "Right", function () lain.util.tag_view_nonempty(1) end,
-             -- {description = "view  previous nonempty", group = "tag"}),
-
     -- Default client focus
-    awful.key({ altkey,           }, "j",
+    awful.key({ altkey,           }, "Tab",
         function ()
             awful.client.focus.byidx( 1)
         end,
-        {description = "focus next by index", group = "client"}
+        {description = "switch next application in same window", group = "client"}
     ),
-    awful.key({ altkey,           }, "k",
+    awful.key({ altkey,   "Shift"   }, "Tab",
         function ()
             awful.client.focus.byidx(-1)
         end,
-        {description = "focus previous by index", group = "client"}
+        {description = "switch previous application in same window ", group = "client"}
     ),
 
     -- By direction client focus
