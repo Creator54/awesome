@@ -366,7 +366,7 @@ function theme.at_screen_connect(s)
     awful.tag(awful.util.tagnames, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt()
+    --s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
@@ -394,8 +394,8 @@ function theme.at_screen_connect(s)
             --s.mytaglist,
             wibox.container.background(wibox.container.margin(wibox.widget { s.mytaglist, layout = wibox.layout.align.horizontal },5,2),color_table[2]), --0,0 gap before/after the taglist
             arrow(color_table[2], color_table1[1]),
-            s.mypromptbox,
-            spr,
+            --s.mypromptbox,
+            --spr,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
