@@ -23,23 +23,23 @@ value = math.random(1,5)
 --NEED HELP HERE
 
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-blue"
-theme.wallpaper                                 = os.getenv("HOME") .. "/wallpapers/" .. value .. ".jpg"
+--theme.wallpaper                                 = os.getenv("HOME") .. "/wallpapers/" .. value .. ".jpg"
 --theme.wallpaper                                 = os.getenv("HOME") .. "/wallpapers/" .. math.random(1,wall_count) .. ".jpg"
 theme.font                                      = "Mononoki Nerd Font Bold 9"
 theme.taglist_font                              = "Droid Sans Bold 10"
 font_color                                      = color_table1[3]   --statusbar normal font color, use cutom colors or color_table1
-theme.fg_normal                                 = color_table[value]   --same color used for shortcut menu font too
+theme.fg_normal                                 = color_table[3]   --same color used for shortcut menu font too
 theme.fg_focus                                  = color_table[5]
 theme.fg_urgent                                 = color_table[3]
 theme.bg_normal                                 = color_table1[1]   --statusbar and shortcut menu background color
-theme.bg_focus                                  = color_table[value]
+theme.bg_focus                                  = color_table[3]
 theme.bg_urgent                                 = color_table1[1]
 theme.taglist_fg_focus                          = color_table1[1]
 theme.tasklist_bg_focus                         = "#000000"
 theme.tasklist_fg_focus                         = color_table[5]
 theme.border_width                              = 6
 theme.border_normal                             = color_table1[1]
-theme.border_focus                              = color_table[value]
+theme.border_focus                              = color_table[3]
 theme.border_marked                             = color_table1[2]
 theme.titlebar_bg_focus                         = color_table1[1]
 theme.titlebar_bg_normal                        = color_table1[1]
@@ -196,7 +196,7 @@ theme.mpd = lain.widget.mpd({
             artist = " " .. mpd_now.artist .. " "
             title  = mpd_now.title  .. " "
             mpdicon:set_image(theme.widget_music_on)
-            widget:set_markup(markup.font(theme.font, markup(color_table[value], artist) .. " " .. title))
+            widget:set_markup(markup.font(theme.font, markup(color_table[3], artist) .. " " .. title))
         elseif mpd_now.state == "pause" then
             widget:set_markup(markup.font(theme.font, " mpd paused "))
             mpdicon:set_image(theme.widget_music_pause)
