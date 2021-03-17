@@ -485,11 +485,12 @@ globalkeys = my_table.join(
 
 
     -- System controls
-    awful.key({ modkey, "Control" }, "r", function () awful.spawn.with_shell("reboot") end,
+    awful.key({ modkey, "Control" }, "r", function () awful.spawn.with_shell("systemctl reboot") end,
               {description = "System Reboot", group = "system"}),
-    awful.key({ modkey, "Control" }, "p", function () awful.spawn.with_shell("poweroff") end,
+    awful.key({ modkey, "Control" }, "p", function () awful.spawn.with_shell("systemctl poweroff") end,
               {description = "System Shutdown", group = "system"}),
-
+    awful.key({ modkey, "Control" }, "h", function () awful.spawn.with_shell("systemctl hibernate") end,
+              {description = "System hibernate", group = "system"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
