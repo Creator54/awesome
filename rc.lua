@@ -104,7 +104,7 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "firefox"
+local browser           = "brave"
 local editor            = "sublime"
 local editorgui         = "geany"
 local filemanager       = "pcmanfm"
@@ -142,12 +142,12 @@ awful.layout.layouts = {
     awful.layout.suit.corner.ne,
     awful.layout.suit.corner.sw,
     awful.layout.suit.corner.se,
-    lain.layout.cascade,
-    lain.layout.cascade.tile,
-    lain.layout.centerwork,
-    lain.layout.centerwork.horizontal,
-    lain.layout.termfair,
-    lain.layout.termfair.center,
+    --lain.layout.cascade,
+    --lain.layout.cascade.tile,
+    --lain.layout.centerwork,
+    --lain.layout.centerwork.horizontal,
+    --lain.layout.termfair,
+    --lain.layout.termfair.center,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -912,7 +912,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart
-autostart = {'copyq','albert','picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/' }
+autostart = { 'betterlockscreen -l dim -t "Dont touch my machine!"','copyq','albert','picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/' }
 for i, pkg in ipairs(autostart) do
   awful.spawn.with_shell(pkg)
 end
