@@ -194,7 +194,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "top",width = 1600, screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -491,7 +491,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = false }
+      }, properties = { titlebars_enabled = flase }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -529,30 +529,30 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
+    --awful.titlebar(c) : setup {
+    --    { -- Left
+    --        awful.titlebar.widget.iconwidget(c),
+    --        buttons = buttons,
+    --        layout  = wibox.layout.fixed.horizontal
+    --    },
+    --    { -- Middle
+    --        { -- Title
+    --            align  = "center",
+    --            widget = awful.titlebar.widget.titlewidget(c)
+    --        },
+    --        buttons = buttons,
+    --        layout  = wibox.layout.flex.horizontal
+    --    },
+    --    { -- Right
+    --        awful.titlebar.widget.floatingbutton (c),
+    --        awful.titlebar.widget.maximizedbutton(c),
+    --        awful.titlebar.widget.stickybutton   (c),
+    --        awful.titlebar.widget.ontopbutton    (c),
+    --        awful.titlebar.widget.closebutton    (c),
+    --        layout = wibox.layout.fixed.horizontal()
+    --    },
+    --    layout = wibox.layout.align.horizontal
+    --}
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
@@ -565,9 +565,9 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Adding gaps
-beautiful.useless_gap = 3
+beautiful.useless_gap = 6
 beautiful.border_normal = "#3F3F3F"
-beautiful.border_focus  = "#dc3232"
+beautiful.border_focus  = "#A94358"
 beautiful.border_marked = "#CC9393"
 
 -- Autostart
@@ -575,4 +575,3 @@ autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --
 for i, pkg in ipairs(autostart) do
   awful.spawn.with_shell(pkg)
 end
-
