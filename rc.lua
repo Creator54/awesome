@@ -199,7 +199,7 @@ awful.screen.connect_for_each_screen(function(s)
       height = 22,
       width = 1600,
       screen = s,
-      bg = beautiful.bg_normal .. "0"
+      bg = beautiful.bg_normal .. "90"
     })
 
     -- Add widgets to the wibox
