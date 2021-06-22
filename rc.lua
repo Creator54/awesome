@@ -193,7 +193,7 @@ awful.screen.connect_for_each_screen(function(s)
         screen  = s,
     }
 
-    beautiful.bg_normal = "#4E4E4E"
+    --beautiful.bg_normal = "#4E4E4E"
     -- Create the wibox
     s.mywibox = awful.wibar({ 
       position = "top",
