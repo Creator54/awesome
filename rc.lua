@@ -277,6 +277,9 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
+    awful.key({ modkey, "Shift" }, "w", function () awful.spawn.with_shell("feh --bg-fill --randomize ~/wallpapers/") end,
+              {description = "refresh wallpaper", group ="awesome"}),
+
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
