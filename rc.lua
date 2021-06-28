@@ -46,6 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.font = "Droid Sans Bold 10"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -200,7 +201,7 @@ awful.screen.connect_for_each_screen(function(s)
       height = 22,
       width = 1600,
       screen = s,
-      bg = beautiful.bg_normal .. "90"
+      bg = beautiful.bg_normal .. "`0"
     })
 
     -- Add widgets to the wibox
