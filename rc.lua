@@ -304,6 +304,8 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
+    awful.key({ modkey           }, "Print", function () awful.util.spawn( "xfce4-screenshooter" ) end,
+        {description = "Xfce screenshot", group = "screenshots"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
@@ -578,7 +580,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Adding gaps
 beautiful.useless_gap = 6
 beautiful.border_normal = "#3F3F3F"
-beautiful.border_focus  = "#A94358"
+beautiful.border_focus  = "#54976E"
 beautiful.border_marked = "#CC9393"
 
 -- Autostart
