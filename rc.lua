@@ -460,7 +460,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = 6,
+      properties = { border_width = 2,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
@@ -520,6 +520,9 @@ client.connect_signal("manage", function (c)
     -- i.e. put it at the end of others instead of setting it master.
     -- if not awesome.startup then awful.client.setslave(c) end
 
+		c.shape = function(cr,w,h)
+        gears.shape.rounded_rect(cr,w,h,5)
+    end
     if awesome.startup
       and not c.size_hints.user_position
       and not c.size_hints.program_position then
