@@ -603,7 +603,7 @@ beautiful.border_focus  = "#54976E"
 beautiful.border_marked = "#CC9393"
 
 -- Autostart
-autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/' }
+autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/', 'dmenu_run'}
 for i, pkg in ipairs(autostart) do
   awful.spawn.with_shell(pkg)
 end
