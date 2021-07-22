@@ -316,7 +316,7 @@ globalkeys = gears.table.join(
 		awful.key({ modkey, altkey   }, "i", function () awful.util.spawn( 'kitty -e vim .config/awesome/rc.lua') end,
               {description = "edit config", group = "awesome"}),
  
-		awful.key({ modkey, altkey   }, "n", function () awful.util.spawn( 'kitty -e nnn -cEFnQrux') end,
+		awful.key({ modkey, altkey   }, "n", function () awful.spawn.with_shell( 'kitty -e nnn -cEFnQrux') end,
               {description = "open nnn", group = "apps"}),
  
 		awful.key({ modkey, altkey   }, "m", function () awful.util.spawn( 'kitty -e cmus') end,
