@@ -314,10 +314,13 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
 
 		awful.key({ modkey, altkey   }, "i", function () awful.util.spawn( 'kitty -e vim .config/awesome/rc.lua') end,
-              {description = "swap with next client by index", group = "client"}),
+              {description = "edit config", group = "awesome"}),
  
 		awful.key({ modkey, altkey   }, "n", function () awful.util.spawn( 'kitty -e nnn -cEFnQrux') end,
-              {description = "swap with next client by index", group = "client"}),
+              {description = "open nnn", group = "apps"}),
+ 
+		awful.key({ modkey, altkey   }, "m", function () awful.util.spawn( 'kitty -e cmus') end,
+              {description = "open cmus", group = "apps"}),
  
 
 		
