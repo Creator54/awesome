@@ -316,6 +316,10 @@ globalkeys = gears.table.join(
 		awful.key({ modkey, altkey   }, "i", function () awful.util.spawn( 'kitty -e vim .config/awesome/rc.lua') end,
               {description = "swap with next client by index", group = "client"}),
  
+		awful.key({ modkey, altkey   }, "n", function () awful.util.spawn( 'kitty -e nnn -cEFnQrux') end,
+              {description = "swap with next client by index", group = "client"}),
+ 
+
 		
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
