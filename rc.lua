@@ -46,7 +46,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.font = "Droid Sans Bold 10"
+beautiful.font = "FiraCode Nerd Font Bold 10"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
