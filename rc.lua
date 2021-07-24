@@ -49,9 +49,9 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "FiraCode Nerd Font Bold 10"
 
 -- This is used later as the default terminal and editor to run.
-terminal = "kitty"
-editor = os.getenv("EDITOR") or "vim"
-editor_cmd = terminal .. " -e " .. editor
+terminal = os.getenv('TERMINAL')
+editor = os.getenv('EDITOR') or 'vim'
+editor_cmd = terminal .. ' -e ' .. editor
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -307,20 +307,26 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey, "Shift" }, "w", function () awful.spawn.with_shell("feh --bg-fill --randomize ~/wallpapers/") end,
+    awful.key({ modkey, "Shift" }, "w", function () awful.spawn.with_shell('feh --bg-fill --randomize $WALLPAPERS') end,
               {description = "refresh wallpaper", group ="awesome"}),
 
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
+              {description = "open default terminal", group = "apps"}),
 
-		awful.key({ modkey, altkey   }, "i", function () awful.util.spawn( 'kitty -e vim .config/awesome/rc.lua') end,
+		awful.key({ modkey, altkey   }, "i", function () awful.spawn(editor_cmd .. ' .config/awesome/rc.lua') end,
               {description = "edit config", group = "awesome"}),
  
-		awful.key({ modkey, altkey   }, "n", function () awful.spawn.with_shell( 'kitty -e nnn -cEFnQrux') end,
+			awful.key({ modkey, altkey   }, "n", function () awful.spawn(terminal .. ' -e nnn -cEFnQrux') end,
               {description = "open nnn", group = "apps"}),
  
-		awful.key({ modkey, altkey   }, "m", function () awful.util.spawn( 'kitty -e cmus') end,
+		awful.key({ modkey, altkey   }, "m", function () awful.spawn(terminal .. ' -e cmus') end,
               {description = "open cmus", group = "apps"}),
+
+		awful.key({ modkey, altkey   }, "e", function () awful.spawn(editor_cmd) end,
+              {description = "open default editor", group = "apps"}),
+
+		awful.key({ modkey, altkey   }, "b", function () awful.spawn.with_shell('$BROWSER') end,
+              {description = "opens default browser", group = "apps"}),
  
 
 		
@@ -628,7 +634,7 @@ beautiful.border_focus  = "#54976E"
 beautiful.border_marked = "#CC9393"
 
 -- Autostart
-autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize ~/wallpapers/', 'dmenu_run'}
+autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize $WALLPAPERS', 'dmenu_run'}
 for i, pkg in ipairs(autostart) do
   awful.spawn.with_shell(pkg)
 end
