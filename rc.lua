@@ -435,9 +435,9 @@ clientkeys = gears.table.join(
 
 				    -- Audio Controls
     awful.key({ }, "XF86AudioRaiseVolume", function () os.execute("amixer set Master 10%+") end,
-              {description = "+10%", group = "hotkeys"}),
+              {description = "+5%", group = "hotkeys"}),
     awful.key({ }, "XF86AudioLowerVolume", function () os.execute("amixer set Master 10%-") end,
-              {description = "-10%", group = "hotkeys"}),
+              {description = "-5%", group = "hotkeys"}),
 		awful.key({ }, "XF86AudioMute",	function () os.execute("amixer set Master toggle") end,
 							{description = "Mute Audio", group = "hotkeys"})
 )
