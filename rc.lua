@@ -218,7 +218,7 @@ awful.screen.connect_for_each_screen(function(s)
       height = 22,
       width = 1600,
       screen = s,
-			visible = false,
+			--visible = false,
       bg = beautiful.bg_normal .. "50"
     })
 
