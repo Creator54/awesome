@@ -216,10 +216,10 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ 
       position = "top",
       height = 22,
-      width = 1600,
+      width = 1800,
       screen = s,
 			--visible = false,
-      bg = beautiful.bg_normal .. "50"
+      bg = beautiful.bg_normal .. "0"
     })
 
     -- Add widgets to the wibox
@@ -234,7 +234,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            mytextclock,
+            -- mytextclock,
             s.mylayoutbox,
         },
     }
@@ -352,7 +352,7 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
-    awful.key({ modkey           }, "Print", function () awful.util.spawn( "xfce4-screenshooter" ) end,
+    awful.key({ modkey           }, "Print", function () awful.util.spawn( "flameshot gui" ) end,
         {description = "Xfce screenshot", group = "screenshots"}),
 
     awful.key({ modkey, "Control" }, "n",
