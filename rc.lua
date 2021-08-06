@@ -251,6 +251,14 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+
+-- System Controls
+		awful.key({ modkey, "Control"}, "p",function() awful.spawn.with_shell('poweroff') end,
+              {description="Poweroff", group="System Controls"}),
+		awful.key({ modkey, "Control"}, "r",function() awful.spawn.with_shell('reboot') end,
+              {description="Reboot", group="System Controls"}),
+
+
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     --awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -353,7 +361,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
     awful.key({ modkey           }, "Print", function () awful.util.spawn( "flameshot gui" ) end,
-        {description = "Xfce screenshot", group = "screenshots"}),
+        {description = "flameshot screenshot", group = "screenshots"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
