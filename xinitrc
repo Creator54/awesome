@@ -2,7 +2,7 @@ nm-applet &
 numlockx on &
 xset -b & 
 flameshot &
-betterlockscreen -l dim -b -tf "%I:%M %p" -t $quote &
+betterlockscreen -l dim -tf "%I:%M %p" -t "Don't touch my Machine!" -b 3 &
 pkill conky;conky -c ~/.config/conky/minimalismRC &
 
 if which awesome; then
