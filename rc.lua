@@ -240,6 +240,8 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
 
 -- System Controls
+		awful.key({ modkey }, "l",function() awful.spawn.with_shell('betterlockscreen -l -tf "%I:%M %p" -t "Life is a Mystery"') end,
+              {description="Lock Screen", group="System Controls"}),
 		awful.key({ modkey, "Control"}, "p",function() awful.spawn.with_shell('poweroff') end,
               {description="Poweroff", group="System Controls"}),
 		awful.key({ modkey, "Control"}, "r",function() awful.spawn.with_shell('reboot') end,
