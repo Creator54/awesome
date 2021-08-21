@@ -64,19 +64,6 @@ altkey = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
   awful.layout.suit.tile,
-  awful.layout.suit.tile.left,
-  awful.layout.suit.max,
-  awful.layout.suit.floating,
-  awful.layout.suit.tile.bottom,
-  awful.layout.suit.tile.top,
-  awful.layout.suit.fair,
-  awful.layout.suit.fair.horizontal,
-  awful.layout.suit.spiral,
-  awful.layout.suit.spiral.dwindle,
-  awful.layout.suit.corner.nw,
-  awful.layout.suit.corner.ne,
-  awful.layout.suit.corner.sw,
-  awful.layout.suit.corner.se,
 }
 --awful.layout.layouts = {
 --  awful.layout.suit.max,
@@ -234,7 +221,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
-            -- mytextclock,
+            mytextclock,
             s.mylayoutbox,
         },
     }
@@ -291,9 +278,6 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "toggle wibox", group = "awesome"}),
-
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -651,7 +635,7 @@ beautiful.border_focus  = "#54976E"
 beautiful.border_marked = "#CC9393"
 
 -- Autostart
-autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize $WALLPAPERS', 'dmenu_run'}
+autostart = {'picom -CG --experimental-backends', 'nm-applet', 'feh --bg-fill --randomize $WALLPAPERS', 'dmenu_run', 'pkill glava; glava --desktop'}
 for i, cmd in ipairs(autostart) do
   awful.spawn.with_shell(cmd)
 end
