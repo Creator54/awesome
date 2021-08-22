@@ -63,6 +63,7 @@ altkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+	awful.layout.suit.max,
   awful.layout.suit.tile,
 }
 --awful.layout.layouts = {
@@ -311,7 +312,16 @@ globalkeys = gears.table.join(
 		awful.key({ modkey, altkey   }, "i", function () awful.spawn(editor_cmd .. ' .config/awesome/rc.lua') end,
               {description = "edit config", group = "awesome"}),
  
-			awful.key({ modkey, altkey   }, "n", function () awful.spawn(terminal .. ' -e nnn -cEFnQrux') end,
+		awful.key({ modkey, altkey   }, "y", function () awful.spawn(terminal .. ' -e .config/fish/scripts/yt') end,
+              {description = "youtube", group = "apps"}),
+
+		awful.key({ modkey, altkey   }, "k", function () awful.spawn.with_shell('screenkey --no-systray -t 0.4 --opacity 0.0') end,
+              {description = "show keys", group = "apps"}),
+ 
+		awful.key({ modkey, altkey   }, "a", function () awful.spawn.with_shell('pkill screenkey') end,
+              {description = "hide keys", group = "apps"}),
+
+		awful.key({ modkey, altkey   }, "n", function () awful.spawn(terminal .. ' -e nnn -cEFnQrux') end,
               {description = "open nnn", group = "apps"}),
  
 		awful.key({ modkey, altkey   }, "m", function () awful.spawn(terminal .. ' -e cmus') end,
