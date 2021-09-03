@@ -65,6 +65,7 @@ altkey = "Mod1"
 awful.layout.layouts = {
 	awful.layout.suit.max,
   awful.layout.suit.tile,
+  awful.layout.suit.tile.top,
 }
 --awful.layout.layouts = {
 --  awful.layout.suit.max,
@@ -223,6 +224,9 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             mytextclock,
+						wibox.widget.textbox('[ BATT: '),
+						awful.widget.watch("fish -c 'BATT'", 3),
+						wibox.widget.textbox(' % ] '),
             s.mylayoutbox,
         },
     }

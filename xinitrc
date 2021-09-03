@@ -5,7 +5,9 @@ flameshot &
 betterlockscreen -l -tf "%I:%M %p" -t "Don't touch my Machine!" &
 pkill conky;conky -c ~/.config/conky/minimalismRC &
 
-if which awesome; then
+if which xfce4-session; then
+	exec startxfce4
+elif which awesome; then
 	exec awesome
 elif which bspwm; then
 	exec bspwm
