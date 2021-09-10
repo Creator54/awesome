@@ -24,7 +24,7 @@ if awesome.startup_errors then
 	naughty.notify(
 		{
 			preset = naughty.config.presets.critical,
-			title = "Oops, there were errors during startup!",
+			title = "Errors encountered while startup !!",
 			text = awesome.startup_errors
 		}
 	)
@@ -45,7 +45,7 @@ do
 			naughty.notify(
 				{
 					preset = naughty.config.presets.critical,
-					title = "Oops, an error happened!",
+					title = "Errors encontered !!",
 					text = tostring(err)
 				}
 			)
@@ -136,7 +136,7 @@ local taglist_buttons =
 local function set_wallpaper(s)
 	-- Wallpaper
 	if beautiful.wallpaper then
-		local wallpaper = beautiful.wallpaper
+		local wallpaper = os.getenv("HOME") .. "/.config/awesome/default.jpg"
 		-- If wallpaper is a function, call it with the screen
 		if type(wallpaper) == "function" then
 			wallpaper = wallpaper(s)
