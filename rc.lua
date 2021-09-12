@@ -910,14 +910,3 @@ beautiful.border_normal = "#3F3F3F"
 beautiful.border_focus = "#54976E"
 beautiful.border_marked = "#CC9393"
 
--- Autostart
-autostart = {
-	"picom -CG --experimental-backends",
-	"nm-applet",
-	"feh --bg-fill --randomize $WALLPAPERS",
-	"dmenu_run",
-	"pkill glava; glava --desktop"
-}
-for i, cmd in ipairs(autostart) do
-	awful.spawn.with_shell(cmd)
-end
