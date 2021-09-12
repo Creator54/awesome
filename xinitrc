@@ -1,3 +1,4 @@
+alsactl restore
 systemctl --user start udiskie.service #for automounting usb drives
 nm-applet &
 numlockx on &
