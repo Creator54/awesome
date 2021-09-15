@@ -1,5 +1,3 @@
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
 -- Standard awesome library
@@ -13,6 +11,10 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
+-- Wibar Arrows
+local separators  = require("separators")
+local arrow = separators.arrow_left
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -154,7 +156,7 @@ awful.screen.connect_for_each_screen(
 		set_wallpaper(s)
 
 		-- Each screen has its own tag table.
-		awful.tag({"1", "2", "3", "4"}, s, awful.layout.layouts[1])
+		awful.tag({" 1 ", " 2 ", " 3 ", " 4 "}, s, awful.layout.layouts[1])
 
 		-- Create a promptbox for each screen
 		s.mypromptbox = awful.widget.prompt()
@@ -207,17 +209,13 @@ awful.screen.connect_for_each_screen(
 			screen = s
 		}
 
-		--beautiful.bg_normal = "#4E4E4E"
 		-- Create the wibox
 		s.mywibox =
 			awful.wibar(
 			{
 				position = "top",
-				height = 22,
-				width = 1800,
+				height = 23,
 				screen = s,
-				--visible = false,
-				bg = beautiful.bg_normal .. "0"
 			}
 		)
 
@@ -227,8 +225,10 @@ awful.screen.connect_for_each_screen(
 			{
 				-- Left widgets
 				layout = wibox.layout.fixed.horizontal,
-				s.mytaglist,
-				s.mypromptbox
+				wibox.container.background(wibox.container.margin(wibox.widget { s.mytaglist, layout = wibox.layout.align.horizontal },5,5),"#A94358"), --0,0 gap before/after the taglist
+				arrow("#A94358","#222222"),
+				--s.mytaglist,
+				s.mypromptbox,
 			},
 			s.mytasklist, -- Middle widget
 			{
@@ -396,7 +396,7 @@ globalkeys =
 		{modkey, altkey},
 		"y",
 		function()
-			awful.spawn(terminal .. " -e .config/fish/scripts/yt")
+			awful.spawn(terminal .. " -e .config/fish/scripts/yt -f")
 		end,
 		{description = "youtube", group = "apps"}
 	),
@@ -558,7 +558,7 @@ globalkeys =
 		"x",
 		function()
 			awful.prompt.run {
-				prompt = "Run Lua code: ",
+				prompt = " Run Lua code: ",
 				textbox = awful.screen.focused().mypromptbox.widget,
 				exe_callback = awful.util.eval,
 				history_path = awful.util.get_cache_dir() .. "/history_eval"
@@ -826,7 +826,7 @@ awful.rules.rules = {
 		rule_any = {
 			type = {"normal", "dialog"}
 		},
-		properties = {titlebars_enabled = flase}
+		properties = {titlebars_enabled = false}
 	}
 
 	-- Set Firefox to always map on the tag named "2" on screen 1.
@@ -904,8 +904,11 @@ client.connect_signal(
 )
 -- }}}
 
--- Adding gaps
 beautiful.useless_gap = 6
+beautiful.fg_normal = "#54976E"
+beautiful.fg_urgent = "#54976E"
+beautiful.bg_focus = "#54976E"
+beautiful.taglist_fg_focus = "#3F3F3F"
 beautiful.border_normal = "#3F3F3F"
 beautiful.border_focus = "#54976E"
 beautiful.border_marked = "#CC9393"
