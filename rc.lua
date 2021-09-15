@@ -12,7 +12,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Wibar Arrows
-local separators  = require("separators")
+local separators  = require("deps.separators")
 local arrow = separators.arrow_left
 
 -- Enable hotkeys help widget for VIM and other apps
@@ -138,7 +138,7 @@ local taglist_buttons =
 local function set_wallpaper(s)
 	-- Wallpaper
 	if beautiful.wallpaper then
-		local wallpaper = os.getenv("HOME") .. "/.config/awesome/default.jpg"
+		local wallpaper = os.getenv("HOME") .. "/.config/awesome/deps/default.jpg"
 		-- If wallpaper is a function, call it with the screen
 		if type(wallpaper) == "function" then
 			wallpaper = wallpaper(s)
