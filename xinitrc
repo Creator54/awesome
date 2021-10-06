@@ -7,7 +7,8 @@ flameshot &
 betterlockscreen -l -tf "%I:%M %p" -t "Don't touch my Machine!" &
 #pkill conky;conky -c ~/.config/conky/minimalismRC &
 #pkill glava;glava --dekstop &
-#picom -CG --experimental-backends &
+picom -CG --experimental-backends &
+pkill clipit; clipit -n &
 
 if which xfce4-session; then
 	exec startxfce4
